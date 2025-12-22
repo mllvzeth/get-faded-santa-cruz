@@ -1,4 +1,4 @@
-import { Scissors, MapPin, Phone, Clock, Instagram, Facebook, Menu, X, Star, Play } from "lucide-react";
+import { MapPin, Phone, Clock, Instagram, Facebook, Menu, X, Star, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import heroImage from "@/assets/hero-barbershop.jpg";
@@ -13,7 +13,7 @@ import barberAndreas from "@/assets/barber-andreas.jpg";
 import barberOscar from "@/assets/barber-oscar.jpg";
 import barberRicky from "@/assets/barber-ricky.jpg";
 import barberJose from "@/assets/barber-jose.jpg";
-
+import getfadedLogo from "@/assets/getfaded-logo.png";
 const services = [
   {
     name: "Haircuts",
@@ -75,10 +75,8 @@ const Index = () => {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-lg border-b border-border/50">
         <div className="container flex items-center justify-between h-16 md:h-20">
-          <a href="#" className="flex flex-col items-center">
-            <Scissors className="w-8 h-8 text-primary" />
-            <span className="font-display text-lg font-bold tracking-wider text-foreground">BLADE</span>
-            <span className="text-[10px] tracking-[0.2em] text-muted-foreground uppercase">Barbershop</span>
+          <a href="#" className="flex items-center">
+            <img src={getfadedLogo} alt="Get Faded Barbershop" className="h-12 md:h-14 w-auto" />
           </a>
           
           {/* Desktop Nav */}
@@ -408,11 +406,7 @@ const Index = () => {
         <div className="container">
           <div className="flex flex-col items-center gap-8">
             {/* Logo */}
-            <div className="flex flex-col items-center">
-              <Scissors className="w-10 h-10 text-primary" />
-              <span className="font-display text-2xl font-bold tracking-wider text-foreground">BLADE</span>
-              <span className="text-xs tracking-[0.2em] text-muted-foreground uppercase">Barbershop</span>
-            </div>
+            <img src={getfadedLogo} alt="Get Faded Barbershop" className="h-16 w-auto" />
 
             {/* Social Links */}
             <div className="flex items-center gap-6">
