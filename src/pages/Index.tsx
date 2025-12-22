@@ -17,39 +17,27 @@ import barberJose from "@/assets/barber-jose.jpg";
 const services = [
   {
     name: "Haircuts",
-    price: "$25 – $300",
-    description: "Standard cuts, fades, house calls & specialty packages",
+    price: "$33 – $300",
+    description: "Standard cuts ($33–$78), Get Faded Special & house calls",
     duration: "30 min – 3 hrs",
   },
   {
     name: "Beard, Shaves & Eyebrows",
     price: "$18 – $48",
-    description: "Beard shaping, hot towel shaves & brow grooming",
+    description: "Eyebrow shaping, beard trims & straight razor shaves",
     duration: "15 – 30 min",
   },
   {
-    name: "Braids, Locs & Weaves",
-    price: "$10 – $512",
-    description: "Repairs to full braiding sessions & loc maintenance",
-    duration: "30 min – 8.5 hrs",
+    name: "Locs",
+    price: "~$153",
+    description: "Loc retwist services for maintenance & styling",
+    duration: "3 – 4 hrs",
   },
   {
-    name: "Hair Color",
-    price: "$48 – $412",
-    description: "Full color, highlights, bleaching & creative styles",
-    duration: "1 – 5 hrs",
-  },
-  {
-    name: "Treatments & Washing",
-    price: "$10 – $93",
-    description: "Deep conditioning, scalp treatments & wash services",
-    duration: "15 min – 2 hrs",
-  },
-  {
-    name: "Makeup & Specialty",
-    price: "$50 – $185",
-    description: "Tooth gems, makeup application & detangling",
-    duration: "30 min – 4 hrs",
+    name: "Add-Ons",
+    price: "$10 – $13",
+    description: "Shampoo, head wash & design add-ons",
+    duration: "15 min",
   },
 ];
 
