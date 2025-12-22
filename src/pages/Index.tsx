@@ -5,6 +5,14 @@ import heroImage from "@/assets/hero-barbershop.jpg";
 import styleFade from "@/assets/style-fade.jpg";
 import styleBeard from "@/assets/style-beard.jpg";
 import styleClassic from "@/assets/style-classic.jpg";
+import barberRed from "@/assets/barber-red.jpg";
+import barberPinks from "@/assets/barber-pinks.jpg";
+import barberAnthony from "@/assets/barber-anthony.jpg";
+import barberDevin from "@/assets/barber-devin.jpg";
+import barberAndreas from "@/assets/barber-andreas.jpg";
+import barberOscar from "@/assets/barber-oscar.jpg";
+import barberRicky from "@/assets/barber-ricky.jpg";
+import barberJose from "@/assets/barber-jose.jpg";
 
 const services = [
   {
@@ -34,9 +42,14 @@ const services = [
 ];
 
 const barbers = [
-  { name: "Marcus", role: "Master Barber", image: styleFade },
-  { name: "James", role: "Fade Specialist", image: styleBeard },
-  { name: "Devon", role: "Style Expert", image: styleClassic },
+  { name: "Red Vasquez", image: barberRed, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/red-vasquez/services" },
+  { name: "Pinks", image: barberPinks, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/pinks-cash-preferred/services" },
+  { name: "Anthony Negrete", image: barberAnthony, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/anthony-negrete/services" },
+  { name: "Devin Herrera", image: barberDevin, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/devin-herrera/services" },
+  { name: "Andreas Olmedo", image: barberAndreas, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/andreas-olmedo/services" },
+  { name: "Oscar Rameno", image: barberOscar, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/oscar-rameno/services" },
+  { name: "Ricky Cutz", image: barberRicky, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/ricky-cutz/services" },
+  { name: "Jose Moya", image: barberJose, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/jose-moya/services" },
 ];
 
 const galleryImages = [
@@ -155,24 +168,27 @@ const Index = () => {
             </h2>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-8">
             {barbers.map((barber, index) => (
-              <div 
+              <a 
                 key={barber.name}
+                href={barber.bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group text-center"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-4">
-                  <div className="absolute inset-0 rounded-full border-2 border-primary/30 group-hover:border-primary transition-colors duration-300" />
+                <div className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 mx-auto mb-4">
+                  <div className="absolute inset-0 rounded-full border-2 border-primary/30 group-hover:border-primary group-hover:shadow-gold transition-all duration-300" />
                   <img 
                     src={barber.image} 
                     alt={barber.name}
                     className="w-full h-full object-cover rounded-full p-1"
                   />
                 </div>
-                <h3 className="font-display text-xl font-semibold text-foreground">{barber.name}</h3>
-                <p className="text-sm text-primary uppercase tracking-wider">{barber.role}</p>
-              </div>
+                <h3 className="font-display text-lg md:text-xl font-semibold text-foreground group-hover:text-primary transition-colors">{barber.name}</h3>
+                <p className="text-xs text-primary uppercase tracking-wider mt-1">Book Now</p>
+              </a>
             ))}
           </div>
 
