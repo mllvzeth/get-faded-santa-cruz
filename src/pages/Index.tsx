@@ -16,28 +16,40 @@ import barberJose from "@/assets/barber-jose.jpg";
 
 const services = [
   {
-    name: "Classic Cut",
-    price: "$35",
-    description: "Precision haircut with hot towel finish",
-    duration: "30 min",
+    name: "Haircuts",
+    price: "$25 – $300",
+    description: "Standard cuts, fades, house calls & specialty packages",
+    duration: "30 min – 3 hrs",
   },
   {
-    name: "Fade & Style",
-    price: "$45",
-    description: "Modern fade with styling and finish",
-    duration: "45 min",
+    name: "Beard, Shaves & Eyebrows",
+    price: "$18 – $48",
+    description: "Beard shaping, hot towel shaves & brow grooming",
+    duration: "15 – 30 min",
   },
   {
-    name: "Beard Trim",
-    price: "$25",
-    description: "Shape, trim, and hot towel treatment",
-    duration: "20 min",
+    name: "Braids, Locs & Weaves",
+    price: "$10 – $512",
+    description: "Repairs to full braiding sessions & loc maintenance",
+    duration: "30 min – 8.5 hrs",
   },
   {
-    name: "The Works",
-    price: "$75",
-    description: "Haircut, beard trim, and facial treatment",
-    duration: "75 min",
+    name: "Hair Color",
+    price: "$48 – $412",
+    description: "Full color, highlights, bleaching & creative styles",
+    duration: "1 – 5 hrs",
+  },
+  {
+    name: "Treatments & Washing",
+    price: "$10 – $93",
+    description: "Deep conditioning, scalp treatments & wash services",
+    duration: "15 min – 2 hrs",
+  },
+  {
+    name: "Makeup & Specialty",
+    price: "$50 – $185",
+    description: "Tooth gems, makeup application & detangling",
+    duration: "30 min – 4 hrs",
   },
 ];
 
