@@ -1,73 +1,70 @@
-# Welcome to your Lovable project
+# get-faded-santa-cruz
 
-## Project info
+A modern web application built with Astro, React, and shadcn/ui.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## ⚠️ Use pnpm only!
 
-## How can I edit this code?
+This project uses **pnpm** exclusively. Do not use npm, yarn, or bun.
 
-There are several ways of editing your application.
+## Prerequisites
 
-**Use Lovable**
+- Node.js 20+ (see `.node-version`)
+- pnpm 9+ (`npm install -g pnpm`)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## Getting Started
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Clone the repository
+git clone https://github.com/mllvzeth/get-faded-santa-cruz.git
+cd get-faded-santa-cruz
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Install dependencies (pnpm only!)
+pnpm install
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+# Start development server
+pnpm dev
 ```
 
-**Edit a file directly in GitHub**
+## Available Scripts
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- `pnpm dev` - Start development server
+- `pnpm dev:cf` - Start Astro dev with Cloudflare adapter/runtime
+- `pnpm build` - Build for production
+- `pnpm preview` - Preview production build locally
+- `pnpm preview:cf` - Build and preview through Wrangler (Workers runtime)
+- `pnpm typecheck` - Run Astro type checks
+- `pnpm types` - Generate Cloudflare runtime binding types
+- `pnpm deploy:staging` - Deploy to Cloudflare Workers staging environment
+- `pnpm deploy` - Deploy to Cloudflare Workers production environment
+- `pnpm lint` - Run ESLint
 
-**Use GitHub Codespaces**
+## Deployment
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+This project targets **Cloudflare Workers** using `wrangler.jsonc`.
 
-## What technologies are used for this project?
+### Cloudflare Workers Setup
 
-This project is built with:
+1. Install dependencies and build once locally:
+   - `pnpm install`
+   - `pnpm build`
+2. Authenticate Wrangler:
+   - `pnpm wrangler login`
+3. Configure staging/production bindings and secrets:
+   - Create KV namespace(s) for `SESSION` as needed
+   - Add secrets via `pnpm wrangler secret put <KEY>`
+4. Deploy:
+   - `pnpm deploy:staging`
+   - `pnpm deploy`
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Preview Deployments
 
-## How can I deploy this project?
+Use `pnpm preview:cf` to preview built output in the Workers runtime.
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## Tech Stack
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- [Astro](https://astro.build/) - Web framework
+- [React](https://react.dev/) - UI library
+- [shadcn/ui](https://ui.shadcn.com/) - Component library
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [Keystatic](https://keystatic.com/) - Content management
+- [Cloudflare Workers](https://developers.cloudflare.com/workers/) - Hosting/runtime

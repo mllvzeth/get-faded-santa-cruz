@@ -11,6 +11,16 @@ node_modules
 dist
 dist-ssr
 *.local
+.astro
+
+# Lockfiles (pnpm-lock.yaml is the only allowed lockfile)
+package-lock.json
+yarn.lock
+
+# Environment
+.env
+.env.*
+!.env.example
 
 # Editor directories and files
 .vscode/*
@@ -22,3 +32,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+.aider*
+AGENTS.md
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+ **/.DS_Store

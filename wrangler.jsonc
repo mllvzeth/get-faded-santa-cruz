@@ -1,0 +1,34 @@
+{
+    "$schema": "node_modules/wrangler/config-schema.json",
+    "name": "get-faded-santa-cruz",
+    "main": "dist/_worker.js/index.js",
+    "compatibility_date": "2026-03-24",
+    "compatibility_flags": [
+        "nodejs_compat_v2"
+    ],
+    "assets": {
+        "binding": "ASSETS",
+        "directory": "dist"
+    },
+    "observability": {
+        "enabled": true
+    },
+    "env": {
+        "production": {
+            "kv_namespaces": [
+                {
+                    "binding": "SESSION_STAGING",
+                    "id": "e291db18625e4d999aed921cdf561915",
+                    "remote": true
+                }]
+        },
+        "staging": {
+            "kv_namespaces": [
+                {
+                    "binding": "SESSION_PRODUCTION",
+                    "id": "0df887da26414346a3688336228b693d"
+                }
+            ]
+        }
+    }
+}
