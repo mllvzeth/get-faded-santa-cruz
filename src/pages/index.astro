@@ -10,7 +10,6 @@ import styleClassic from "@/assets/style-classic.jpg";
 import barberRed from "@/assets/barber-red.jpg";
 import barberPinks from "@/assets/barber-pinks.jpg";
 import barberAnthony from "@/assets/barber-anthony.jpg";
-import barberDevin from "@/assets/barber-devin.jpg";
 import barberAndreas from "@/assets/barber-andreas.jpg";
 import barberOscar from "@/assets/barber-oscar.jpg";
 import barberRicky from "@/assets/barber-ricky.jpg";
@@ -23,10 +22,11 @@ const businessName = "Get Faded Barbershop";
 const businessTagline = "Cuts • Culture • Community";
 const businessResetLine = "You don’t just get a cut — you get reset.";
 const aboutCopy =
-  "Come enjoy a great barbershop experience. Located near downtown Santa Cruz, chill, relax, be comfortable, and be yourself. Leave feeling fresh knowing that you’re walking out with an excellent cut.";
+    "Come enjoy a great barbershop experience. Located near downtown Santa Cruz, chill, relax, be comfortable, and be yourself. Leave feeling fresh knowing that you’re walking out with an excellent cut.";
 const mainBookingUrl = "https://getsquire.com/discover/barbershop/get-faded-barbershop-santa-cruz";
 const businessAddress = "907 Cedar St, Santa Cruz, CA 95060";
 const businessPhone = "(831) 600-8958";
+const callUrl = "tel:+18316008958";
 const directionsUrl = "https://www.google.com/maps/dir/?api=1&destination=Get%20Faded%20Barbershop,%201007%20Cedar%20St,%20Santa%20Cruz,%20CA%2095060";
 const googleReviewsUrl = "https://www.google.com/search?q=get%20faded%20sc#lrd=0x808e4028b1890a8b:0x2762688a2815118c,1,,,,";
 const yelpReviewsUrl = "https://www.yelp.com/biz/get-faded-barbershop-santa-cruz-3?adjust_creative=duckduckgo&hrid=qBGdK3fe0gR5AWx9GZhWlw";
@@ -35,491 +35,642 @@ const yelpSocialUrl = "https://www.yelp.com/biz/get-faded-barbershop-santa-cruz-
 const instagramSocialUrl = "https://www.instagram.com/get__faded/";
 
 const services = [
-  {
-    name: "Haircuts",
-    price: "$33 – $300",
-    description: "Standard cuts ($33–$78), Get Faded Special & house calls",
-    duration: "30 min – 3 hrs",
-  },
-  {
-    name: "Beard, Shaves & Eyebrows",
-    price: "$18 – $48",
-    description: "Eyebrow shaping, beard trims & straight razor shaves",
-    duration: "15 – 30 min",
-  },
-  {
-    name: "Locs",
-    price: "~$153",
-    description: "Loc retwist services for maintenance & styling",
-    duration: "3 – 4 hrs",
-  },
-  {
-    name: "Add-Ons",
-    price: "$10 – $13",
-    description: "Shampoo, head wash & design add-ons",
-    duration: "15 min",
-  },
+    {
+        name: "Haircuts",
+        price: "$45+",
+        description: "Standard cuts ($45+), Get Faded Special & house calls",
+        duration: "30 min – 3 hrs",
+    },
+    // {
+    //     name: "Beard, Shaves & Eyebrows",
+    //     price: "$18 – $48",
+    //     description: "Eyebrow shaping, beard trims & straight razor shaves",
+    //     duration: "15 – 30 min",
+    // },
+    // {
+    //     name: "Locs",
+    //     price: "~$153",
+    //     description: "Loc retwist services for maintenance & styling",
+    //     duration: "3 – 4 hrs",
+    // },
+    // {
+    //     name: "Add-Ons",
+    //     price: "$10 – $13",
+    //     description: "Shampoo, head wash & design add-ons",
+    //     duration: "15 min",
+    // },
 ];
 
 const barbers = [
-  { name: "Red Vasquez", image: barberRed, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/red-vasquez/services" },
-  { name: "Pinks", image: barberPinks, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/pinks-cash-preferred/services" },
-  { name: "Anthony Negrete", image: barberAnthony, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/anthony-negrete/services" },
-  { name: "Devin Herrera", image: barberDevin, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/devin-herrera/services" },
-  { name: "Andreas Olmedo", image: barberAndreas, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/andreas-olmedo/services" },
-  { name: "Oscar Rameno", image: barberOscar, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/oscar-rameno/services" },
-  { name: "Ricky Cutz", image: barberRicky, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/ricky-cutz/services" },
-  { name: "Jose Moya", image: barberJose, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/jose-moya/services" },
+    { name: "Red Vasquez", primaryImage: barberRed.src, revealImage: barberRed.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/red-vasquez/services", cropClass: "object-[42%_26%]" },
+    { name: "Pinks", primaryImage: "/20260325_pink.jpg", revealImage: barberPinks.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/pinks-cash-preferred/services", cropClass: "object-[50%_22%]" },
+    { name: "Anthony Negrete", primaryImage: "/20260325_anthony.jpg", revealImage: barberAnthony.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/anthony-negrete/services", cropClass: "object-[50%_24%]" },
+    { name: "Andreas Olmedo", primaryImage: "/20260325_andres.jpg", revealImage: barberAndreas.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/andreas-olmedo/services", cropClass: "object-[42%_24%]" },
+    { name: "Oscar Rameno", primaryImage: "/20260325_oscar.jpg", revealImage: barberOscar.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/oscar-rameno/services", cropClass: "object-[50%_24%]" },
+    { name: "Ricky Cutz", primaryImage: "/20260325_rick.jpg", revealImage: barberRicky.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/ricky-cutz/services", cropClass: "object-[58%_30%]" },
+    { name: "Jose Moya", primaryImage: "/20260325_jose.jpg", revealImage: barberJose.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/jose-moya/services", cropClass: "object-[50%_24%]" },
 ];
 
 const galleryImages = [
-  { src: styleFade, alt: "Classic Fade", label: "Fade" },
-  { src: styleBeard, alt: "Beard Grooming", label: "Beard" },
-  { src: styleClassic, alt: "Classic Style", label: "Classic" },
-  { src: heroImage, alt: "Premium Cut", label: "Premium" },
-  { src: styleFade, alt: "Signature Look", label: "Signature" },
-  { src: styleBeard, alt: "Clean Shave", label: "Clean" },
+    { src: styleFade, alt: "Classic Fade", label: "Fade" },
+    { src: styleBeard, alt: "Beard Grooming", label: "Beard" },
+    { src: styleClassic, alt: "Classic Style", label: "Classic" },
+    { src: heroImage, alt: "Premium Cut", label: "Premium" },
+    { src: styleFade, alt: "Signature Look", label: "Signature" },
+    { src: styleBeard, alt: "Clean Shave", label: "Clean" },
 ];
 
 const reviews = [
-  { name: "Michael T.", text: "Best barbershop in town! Been coming here for 2 years.", rating: 5 },
-  { name: "David R.", text: "Marcus always hooks me up with the perfect fade.", rating: 5 },
-  { name: "Chris L.", text: "Professional service, great atmosphere. Highly recommend!", rating: 5 },
+//     { name: "Michael T.", text: "Best barbershop in town! Been coming here for 2 years.", rating: 5 },
+//     { name: "David R.", text: "Marcus always hooks me up with the perfect fade.", rating: 5 },
+//     { name: "Chris L.", text: "Professional service, great atmosphere. Highly recommend!", rating: 5 },
 ];
 ---
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/x-icon" href="/favicon-v3.ico" />
-    <link rel="shortcut icon" href="/favicon-v3.ico" />
-    <link rel="apple-touch-icon" href="/favicon-v3.ico" />
-    <title>Get Faded Barbershop</title>
-  </head>
-  <body>
-    <div class="min-h-screen bg-background">
-      <nav class="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-lg border-b border-border/50">
-        <div class="container flex items-center justify-between h-16 md:h-20">
-          <a href="#" class="flex items-center">
-            <Image
-              src={getfadedLogo}
-              alt={businessName}
-              loading="eager"
-              fetchpriority="high"
-              width={144}
-              height={56}
-              class="h-12 md:h-14 w-auto"
-            />
-          </a>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/x-icon" href="/favicon-v3.ico" />
+        <link rel="shortcut icon" href="/favicon-v3.ico" />
+        <link rel="apple-touch-icon" href="/favicon-v3.ico" />
+        <title>Get Faded Barbershop</title>
+    </head>
+    <body>
+        <div class="min-h-screen bg-background">
+            <nav class="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-lg border-b border-border/50">
+                <div class="container flex items-center justify-between h-16 md:h-20">
+                    <a href="#" class="flex items-center">
+                        <Image
+                            src={getfadedLogo}
+                            alt={businessName}
+                            loading="eager"
+                            fetchpriority="high"
+                            width={144}
+                            height={56}
+                            class="h-12 md:h-14 w-auto"
+                        />
+                    </a>
 
-          <div class="hidden md:flex items-center gap-8">
-            <a href="#team" class="text-sm text-muted-foreground hover:text-primary transition-colors uppercase tracking-wider">Barbers</a>
-            <a href="#services" class="text-sm text-muted-foreground hover:text-primary transition-colors uppercase tracking-wider">Services</a>
-            <a href="#reviews" class="text-sm text-muted-foreground hover:text-primary transition-colors uppercase tracking-wider">Reviews</a>
-            <a href="#contact" class="text-sm text-muted-foreground hover:text-primary transition-colors uppercase tracking-wider">Contact</a>
-          </div>
-          <a
-            href={mainBookingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class={buttonVariants({ variant: "hero", size: "sm", className: "hidden md:inline-flex uppercase tracking-wider" })}
-          >
-            Book Now
-          </a>
-
-          <details class="md:hidden relative">
-            <summary class="list-none cursor-pointer text-foreground p-2 [&::-webkit-details-marker]:hidden">
-              <Menu className="w-6 h-6" />
-            </summary>
-            <div class="absolute right-0 top-14 min-w-52 rounded-lg border border-border bg-background p-4 shadow-xl animate-fade-in">
-              <div class="flex flex-col gap-4">
-                <a href="#team" class="text-foreground py-1 uppercase tracking-wider">Barbers</a>
-                <a href="#services" class="text-foreground py-1 uppercase tracking-wider">Services</a>
-                <a href="#reviews" class="text-foreground py-1 uppercase tracking-wider">Reviews</a>
-                <a href="#contact" class="text-foreground py-1 uppercase tracking-wider">Contact</a>
-                <a
-                  href={mainBookingUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class={buttonVariants({ variant: "hero", className: "w-full uppercase tracking-wider" })}
-                >
-                  Book Now
-                </a>
-              </div>
-            </div>
-          </details>
-        </div>
-      </nav>
-
-      <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        <div class="absolute inset-0">
-          <video
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="auto"
-            poster={heroImage.src}
-            class="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src="/hero-video.webm" type="video/webm" />
-            <source src="/hero-video.mp4" type="video/mp4" />
-          </video>
-          <div class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/45 to-background/20"></div>
-        </div>
-
-        <div class="container relative z-10 text-center py-20">
-          <div class="max-w-3xl mx-auto">
-            <h1 class="font-display text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-4 animate-fade-up opacity-0">
-              Cuts • Culture • <span class="text-gradient">Community</span>
-            </h1>
-
-            <p class="text-xl md:text-2xl text-muted-foreground mb-2 animate-fade-up opacity-0 delay-100 uppercase tracking-widest">
-              {businessResetLine}
-            </p>
-
-            <p class="text-lg text-muted-foreground/80 mb-10 max-w-xl mx-auto animate-fade-up opacity-0 delay-200">
-              {aboutCopy}
-            </p>
-            <div class="flex flex-col items-center gap-4">
-              <a
-                href={mainBookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                class={buttonVariants({ variant: "hero", size: "lg", className: "animate-fade-up opacity-0 delay-300 uppercase tracking-wider text-lg px-10 py-6" })}
-              >
-                Book Now
-              </a>
-              <a
-                href={directionsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                class={buttonVariants({ variant: "outline", size: "lg", className: "animate-fade-up opacity-0 delay-400 uppercase tracking-wider text-lg px-10 py-6" })}
-              >
-                Direction
-              </a>
-            </div>
-          </div>
-
-          <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-            <div class="w-6 h-10 border-2 border-primary/50 rounded-full flex justify-center pt-2">
-              <div class="w-1.5 h-3 bg-primary rounded-full animate-pulse"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="team" class="py-20 md:py-28 bg-charcoal-light">
-        <div class="container">
-          <div class="text-center mb-12">
-            <span class="text-primary text-sm font-medium tracking-[0.3em] uppercase">Our Team</span>
-            <h2 class="font-display text-3xl md:text-5xl font-bold mt-4 uppercase tracking-wide">
-              Meet Our <span class="text-gradient">Barbers</span>
-            </h2>
-          </div>
-
-          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-8">
-            {barbers.map((barber, index) => (
-              <a
-                href={barber.bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="group text-center reveal-soft-rise"
-                data-reveal
-                style={`animation-delay: ${index * 100}ms`}
-              >
-                <div class="relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 mx-auto mb-4">
-                  <div class="absolute inset-0 rounded-full border-2 border-primary/30 group-hover:border-primary group-hover:shadow-gold transition-all duration-300"></div>
-                  <Image
-                    src={barber.image}
-                    alt={barber.name}
-                    loading="lazy"
-                    width={144}
-                    height={144}
-                    class="w-full h-full object-cover rounded-full p-1"
-                  />
-                </div>
-                <h3 class="font-display text-lg md:text-xl font-semibold text-foreground group-hover:text-primary transition-colors">{barber.name}</h3>
-                <p class="text-xs text-primary uppercase tracking-wider mt-1">Book Now</p>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="services" class="py-20 md:py-32">
-        <div class="container">
-          <div class="text-center mb-16">
-            <span class="text-primary text-sm font-medium tracking-widest uppercase">Our Services</span>
-            <h2 class="font-display text-4xl md:text-5xl font-bold mt-4">
-              Premium <span class="text-gradient">Grooming</span>
-            </h2>
-          </div>
-
-          <div class="grid gap-4 md:gap-6 max-w-2xl mx-auto">
-            {services.map((service, index) => (
-              <div
-                class="group relative p-6 rounded-2xl bg-gradient-card border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-gold reveal-soft-slide"
-                data-reveal
-                style={`animation-delay: ${index * 100}ms`}
-              >
-                <div class="flex items-center justify-between">
-                  <div class="flex-1">
-                    <div class="flex items-center gap-3 mb-2">
-                      <h3 class="font-display text-xl font-semibold text-foreground group-hover:text-gradient transition-colors">
-                        {service.name}
-                      </h3>
-                      <span class="text-xs text-muted-foreground px-2 py-1 rounded-full bg-secondary">
-                        {service.duration}
-                      </span>
+                    <div class="hidden md:flex items-center gap-8">
+                        <a href="#team" class="text-sm text-muted-foreground hover:text-primary transition-colors uppercase tracking-wider">Barbers</a>
+                        <a href="#services" class="text-sm text-muted-foreground hover:text-primary transition-colors uppercase tracking-wider">Services</a>
+                        <a href="#reviews" class="text-sm text-muted-foreground hover:text-primary transition-colors uppercase tracking-wider">Reviews</a>
+                        <a href="#contact" class="text-sm text-muted-foreground hover:text-primary transition-colors uppercase tracking-wider">Contact</a>
                     </div>
-                    <p class="text-muted-foreground text-sm">{service.description}</p>
-                  </div>
-                  <div class="text-right">
-                    <div class="font-display text-2xl font-bold text-primary">{service.price}</div>
-                  </div>
+                    <a
+                        href={mainBookingUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class={buttonVariants({ variant: "hero", size: "sm", className: "hidden md:inline-flex uppercase tracking-wider button-shimmer shimmer-delay-1" })}
+                    >
+                        Book Now
+                    </a>
+
+                    <details class="md:hidden relative" data-mobile-menu>
+                        <summary class="list-none cursor-pointer text-foreground p-2 [&::-webkit-details-marker]:hidden">
+                            <Menu className="w-6 h-6" />
+                        </summary>
+                        <div class="absolute right-0 top-14 min-w-52 rounded-lg border border-border bg-background p-4 shadow-xl animate-menu-open" data-mobile-menu-panel>
+                            <div class="flex flex-col gap-4">
+                                <a href="#team" class="text-foreground py-1 uppercase tracking-wider" data-mobile-menu-item>Barbers</a>
+                                <a href="#services" class="text-foreground py-1 uppercase tracking-wider" data-mobile-menu-item>Services</a>
+                                <a href="#reviews" class="text-foreground py-1 uppercase tracking-wider" data-mobile-menu-item>Reviews</a>
+                                <a href="#contact" class="text-foreground py-1 uppercase tracking-wider" data-mobile-menu-item>Contact</a>
+                                <a
+                                    href={mainBookingUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class={buttonVariants({ variant: "hero", className: "w-full uppercase tracking-wider button-shimmer shimmer-delay-2" })}
+                                    data-mobile-menu-item
+                                >
+                                    Book Now
+                                </a>
+                            </div>
+                        </div>
+                    </details>
                 </div>
-                <div class="absolute inset-0 rounded-2xl bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
-              </div>
-            ))}
-          </div>
+            </nav>
 
-          <div class="text-center mt-12">
-            <a href={mainBookingUrl} target="_blank" rel="noopener noreferrer" class={buttonVariants({ variant: "hero", size: "lg" })}>Book Appointment</a>
-          </div>
-        </div>
-      </section>
-
-      <section id="gallery" class="py-20 md:py-28 hidden">
-        <div class="container">
-          <div class="text-center mb-12">
-            <span class="text-primary text-sm font-medium tracking-[0.3em] uppercase">Our Work</span>
-            <h2 class="font-display text-3xl md:text-5xl font-bold mt-4 uppercase tracking-wide">
-              <span class="text-gradient">Videos</span>
-            </h2>
-          </div>
-
-          <div class="relative aspect-video max-w-4xl mx-auto rounded-xl overflow-hidden mb-8 group cursor-pointer">
-            <Image
-              src={heroImage}
-              alt="Watch our work"
-              loading="lazy"
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-            <div class="absolute inset-0 bg-background/40 flex items-center justify-center group-hover:bg-background/30 transition-colors">
-              <div class="w-20 h-20 rounded-full bg-primary flex items-center justify-center shadow-gold group-hover:scale-110 transition-transform">
-                <Play className="w-8 h-8 text-primary-foreground ml-1" fill="currentColor" />
-              </div>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4">
-            {galleryImages.map((image) => (
-              <div class="group relative aspect-square rounded-xl overflow-hidden">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  loading="lazy"
-                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Play className="w-10 h-10 text-foreground" />
+            <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+                <div class="absolute inset-0">
+                    <video
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                        preload="auto"
+                        poster={heroImage.src}
+                        class="absolute inset-0 w-full h-full object-cover"
+                    >
+                        <source src="/hero-video.webm" type="video/webm" />
+                        <source src="/hero-video.mp4" type="video/mp4" />
+                    </video>
+                    <div class="absolute inset-0 bg-black/30"></div>
+                    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/60"></div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      <section id="reviews" class="py-20 md:py-28 bg-charcoal-light">
-        <div class="container">
-          <div class="text-center mb-12">
-            <span class="text-primary text-sm font-medium tracking-[0.3em] uppercase">Testimonials</span>
-            <h2 class="font-display text-3xl md:text-5xl font-bold mt-4 uppercase tracking-wide">
-              Client <span class="text-gradient">Reviews</span>
-            </h2>
-          </div>
+                <div class="container relative z-10 text-center py-20">
+                    <div class="max-w-3xl mx-auto">
+                        <h1 class="font-display text-[clamp(2.75rem,10vw,4.5rem)] font-bold leading-tight mb-4 animate-fade-up opacity-0 text-foreground [text-shadow:0_3px_14px_rgba(0,0,0,0.65)]">
+                            Cuts • Culture • <span class="text-primary glow-gold">Community</span>
+                        </h1>
+                        <div>
+                            <p class="text-xl md:text-2xl text-foreground/95 mb-2 max-w-sm md:max-w-md animate-fade-up opacity-0 delay-100 uppercase tracking-widest [text-shadow:0_2px_10px_rgba(0,0,0,0.6)] hero-caption-glass">
+                                {businessResetLine}
+                            </p>
+                            <p class="text-lg text-foreground/85 mb-10 max-w-sm md:max-w-md mx-auto animate-fade-up opacity-0 delay-200 [text-shadow:0_1px_8px_rgba(0,0,0,0.55)]">
+                                {aboutCopy}
+                            </p>
+                        </div>
+                        <div class="flex flex-col items-center gap-4">
+                            <div class="animate-fade-up opacity-0 delay-300">
+                                <a
+                                    href={mainBookingUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class={buttonVariants({ variant: "hero", size: "lg", className: "uppercase tracking-wider text-lg px-10 py-6 min-w-[160px] button-shimmer shimmer-delay-3" })}
+                                >
+                                    Book Now
+                                </a>
+                            </div>
+                            <a
+                                href={directionsUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class={buttonVariants({ variant: "secondary", size: "lg", className: "animate-fade-up opacity-0 delay-400 uppercase tracking-wider text-lg px-10 py-6 min-w-[160px]" })}
+                            >
+                                Directions
+                            </a>
+                            <a
+                                href={callUrl}
+                                class={buttonVariants({ variant: "secondary", size: "lg", className: "animate-fade-up opacity-0 delay-500 uppercase tracking-wider text-lg px-10 py-6 min-w-[160px]" })}
+                            >
+                                Call
+                            </a>
+                        </div>
+                    </div>
 
-          <div class="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto mb-12 hidden">
-            {reviews.map((review) => (
-              <div class="p-6 rounded-xl bg-gradient-card border border-border/50 hover:border-primary/30 transition-all">
-                <div class="flex gap-1 mb-4">
-                  {Array.from({ length: review.rating }).map(() => (
-                    <Star className="w-5 h-5 text-primary fill-primary" />
-                  ))}
+                    <div class="absolute bottom-6 left-1/2 -translate-x-1/2">
+                        <div class="animate-bounce">
+                            <div class="w-6 h-10 border-2 border-primary rounded-full flex justify-center pt-2 shadow-[0_0_18px_hsl(var(--primary)/0.55)]">
+                                <div class="w-1.5 h-3 bg-primary rounded-full animate-pulse shadow-[0_0_10px_hsl(var(--primary)/0.8)]"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p class="text-muted-foreground mb-4 italic">"{review.text}"</p>
-                <p class="font-semibold text-foreground">{review.name}</p>
-              </div>
-            ))}
-          </div>
+            </section>
 
-          <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10">
-            <a href={googleReviewsUrl} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-6 py-3 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors">
-              <span class="text-2xl">G</span>
-              <span class="text-sm font-semibold">Google</span>
-            </a>
-            <a href={yelpReviewsUrl} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-6 py-3 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors">
-              <span class="text-2xl">Y</span>
-              <span class="text-sm font-semibold">Yelp</span>
-            </a>
-            <a href={facebookSocialUrl} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-6 py-3 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors">
-              <Facebook className="w-6 h-6" />
-              <span class="text-sm font-semibold">Facebook</span>
-            </a>
-          </div>
-        </div>
-      </section>
+            <section id="team" class="py-20 md:py-28 bg-charcoal-light">
+                <div class="container">
+                    <div class="text-center mb-12">
+                        <span class="text-primary text-sm font-medium tracking-[0.3em] uppercase">Our Team</span>
+                        <h2 class="font-display text-3xl md:text-5xl font-bold mt-4 uppercase tracking-wide">
+                            Meet Our <span class="text-gradient">Barbers</span>
+                        </h2>
+                    </div>
 
-      <section class="py-20 md:py-28 relative overflow-hidden">
-        <div class="absolute inset-0">
-          <Image
-            src={styleClassic}
-            alt="Get your cut today"
-            loading="lazy"
-            class="w-full h-full object-cover opacity-30"
-          />
-          <div class="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background"></div>
-        </div>
-        <div class="container relative">
-          <div class="max-w-2xl mx-auto text-center">
-            <h2 class="font-display text-3xl md:text-5xl font-bold mb-6 uppercase tracking-wide">
-              {businessName}
-            </h2>
-            <p class="text-lg text-muted-foreground mb-8">
-              {businessTagline} | {businessResetLine}
-            </p>
-            <a href={mainBookingUrl} target="_blank" rel="noopener noreferrer" class={buttonVariants({ variant: "hero", size: "lg", className: "uppercase tracking-wider px-10" })}>Book Now</a>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="py-20 md:py-28 bg-charcoal-light">
-        <div class="container">
-          <div class="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
-            <div>
-              <span class="text-primary text-sm font-medium tracking-[0.3em] uppercase">Visit Us</span>
-              <h2 class="font-display text-3xl md:text-4xl font-bold mt-4 mb-8 uppercase">
-                Our <span class="text-gradient">Location</span>
-              </h2>
-              <div class="space-y-4 text-muted-foreground">
-                <div class="flex items-center gap-4">
-                  <MapPin className="w-6 h-6 text-primary flex-shrink-0" />
-                  <span>{businessAddress}</span>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-8">
+                        {barbers.map((barber, index) => (
+                        <a
+                            href={barber.bookingUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="group text-center reveal-soft-rise"
+                            data-reveal
+                            style={`animation-delay: ${index * 100}ms`}
+                        >
+                            <div class="relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 mx-auto mb-4 overflow-hidden rounded-full">
+                                <div class="absolute inset-0 z-10 rounded-full border-2 border-primary/30 group-hover:border-primary group-hover:shadow-gold transition-all duration-300"></div>
+                                <img
+                                    src={barber.primaryImage}
+                                    alt={barber.name}
+                                    loading="lazy"
+                                    width="144"
+                                    height="144"
+                                    class={`absolute inset-0 w-full h-full object-cover ${barber.cropClass} scale-[1.1] group-hover:scale-[1.05] transform-gpu transition-all duration-500 rounded-full`}
+                                />
+                                <img
+                                    src={barber.revealImage}
+                                    alt={`${barber.name} alternate portrait`}
+                                    loading="lazy"
+                                    width="144"
+                                    height="144"
+                                    class={`absolute inset-0 w-full h-full object-cover ${barber.cropClass} scale-[1.25] opacity-0 group-hover:opacity-100 group-hover:scale-[1.15] transform-gpu transition-all duration-500 rounded-full`}
+                                />
+                            </div>
+                            <h3 class="font-display text-lg md:text-xl font-semibold text-foreground group-hover:text-primary transition-colors">{barber.name}</h3>
+                            <p class="text-xs text-primary uppercase tracking-wider mt-1">Book Now</p>
+                        </a>
+                        ))}
+                    </div>
                 </div>
-                <div class="flex items-center gap-4">
-                  <Phone className="w-6 h-6 text-primary flex-shrink-0" />
-                  <span>{businessPhone}</span>
+            </section>
+
+            <section id="services" class="py-20 md:py-32">
+                <div class="container">
+                    <div class="text-center mb-16">
+                        <span class="text-primary text-sm font-medium tracking-widest uppercase">Our Services</span>
+                        <h2 class="font-display text-4xl md:text-5xl font-bold mt-4">
+                            Premium <span class="text-gradient">Grooming</span>
+                        </h2>
+                    </div>
+
+                    <div class="grid gap-4 md:gap-6 max-w-2xl mx-auto">
+                        {services.map((service, index) => (
+                        <div
+                            class="group relative p-6 rounded-2xl bg-gradient-card border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-gold reveal-soft-slide"
+                            data-reveal
+                            style={`animation-delay: ${index * 100}ms`}
+                        >
+                            <div class="flex items-center justify-between">
+                                <div class="flex-1">
+                                    <div class="flex flex-col gap-1 mb-2 sm:flex-row sm:items-center sm:gap-3">
+                                        <h3 class="font-display text-xl font-semibold text-foreground group-hover:text-gradient transition-colors">
+                                            {service.name}
+                                        </h3>
+                                        <span class="self-start text-xs text-muted-foreground px-2 py-1 rounded-full bg-secondary sm:self-auto">
+                                            {service.duration}
+                                        </span>
+                                    </div>
+                                    <p class="text-muted-foreground text-sm">{service.description}</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-display text-2xl font-bold text-primary">{service.price}</div>
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 rounded-2xl bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+                        </div>
+                        ))}
+                    </div>
+
+                    <div class="text-center mt-12">
+                        <a href={mainBookingUrl} target="_blank" rel="noopener noreferrer" class={buttonVariants({ variant: "hero", size: "lg", className: "uppercase tracking-wider" })}>Book Appointment</a>
+                    </div>
                 </div>
-                <div class="flex items-center gap-4">
-                  <Clock className="w-6 h-6 text-primary flex-shrink-0" />
-                  <div>
-                    <p>Mon - Fri: 9AM - 7PM</p>
-                    <p>Sat: 8AM - 6PM</p>
-                    <p>Sun: Closed</p>
-                  </div>
+            </section>
+
+            <section id="gallery" class="py-20 md:py-28 hidden">
+                <div class="container">
+                    <div class="text-center mb-12">
+                        <span class="text-primary text-sm font-medium tracking-[0.3em] uppercase">Our Work</span>
+                        <h2 class="font-display text-3xl md:text-5xl font-bold mt-4 uppercase tracking-wide">
+                            <span class="text-gradient">Videos</span>
+                        </h2>
+                    </div>
+
+                    <div class="relative aspect-video max-w-4xl mx-auto rounded-xl overflow-hidden mb-8 group cursor-pointer">
+                        <Image
+                            src={heroImage}
+                            alt="Watch our work"
+                            loading="lazy"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div class="absolute inset-0 bg-background/40 flex items-center justify-center group-hover:bg-background/30 transition-colors">
+                            <div class="w-20 h-20 rounded-full bg-primary flex items-center justify-center shadow-gold group-hover:scale-110 transition-transform">
+                                <Play className="w-8 h-8 text-primary-foreground ml-1" fill="currentColor" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4">
+                        {galleryImages.map((image) => (
+                        <div class="group relative aspect-square rounded-xl overflow-hidden">
+                            <Image
+                                src={image.src}
+                                alt={image.alt}
+                                loading="lazy"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                <Play className="w-10 h-10 text-foreground" />
+                            </div>
+                        </div>
+                        ))}
+                    </div>
                 </div>
-              </div>
-              <a
-                href={directionsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                class={buttonVariants({ variant: "hero", size: "lg", className: "mt-8 uppercase tracking-wider" })}
-              >
-                Get Directions
-              </a>
-            </div>
-            <div class="aspect-video rounded-xl overflow-hidden bg-secondary">
-              <div class="w-full h-full flex items-center justify-center text-muted-foreground">
-                <MapPin className="w-16 h-16 text-primary/30" />
-              </div>
-            </div>
-          </div>
+            </section>
+
+            <section id="reviews" class="py-20 md:py-28 bg-charcoal-light">
+                <div class="container">
+                    <div class="text-center mb-12">
+                        <span class="text-primary text-sm font-medium tracking-[0.3em] uppercase">Testimonials</span>
+                        <h2 class="font-display text-3xl md:text-5xl font-bold mt-4 uppercase tracking-wide">
+                            Client <span class="text-shimmer-gold shimmer-delay-1" data-text="Reviews">Reviews</span>
+                        </h2>
+                    </div>
+
+                    <div class="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto mb-12 hidden">
+                        {reviews.map((review) => (
+                        <div class="p-6 rounded-xl bg-gradient-card border border-border/50 hover:border-primary/30 transition-all">
+                            <div class="flex gap-1 mb-4">
+                                {Array.from({ length: review.rating }).map(() => (
+                                <Star className="w-5 h-5 text-primary fill-primary" />
+                                ))}
+                            </div>
+                            <p class="text-muted-foreground mb-4 italic">"{review.text}"</p>
+                            <p class="font-semibold text-foreground">{review.name}</p>
+                        </div>
+                        ))}
+                    </div>
+
+                    <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10">
+                        <a href={googleReviewsUrl} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-6 py-3 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors">
+                            <span class="text-2xl">G</span>
+                            <span class="text-sm font-semibold">Google</span>
+                        </a>
+                        <a href={yelpReviewsUrl} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-6 py-3 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors">
+                            <span class="text-2xl">Y</span>
+                            <span class="text-sm font-semibold">Yelp</span>
+                        </a>
+                        <a href={facebookSocialUrl} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-6 py-3 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors">
+                            <Facebook className="w-6 h-6" />
+                            <span class="text-sm font-semibold">Facebook</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-20 md:py-28 relative overflow-hidden">
+                <div class="absolute inset-0">
+                    <Image
+                        src={styleClassic}
+                        alt="Get your cut today"
+                        loading="lazy"
+                        class="w-full h-full object-cover opacity-30"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background"></div>
+                </div>
+                <div class="container relative">
+                    <div class="max-w-2xl mx-auto text-center">
+                        <h2 class="font-display text-3xl md:text-5xl font-bold mb-6 uppercase tracking-wide">
+                            {businessName}
+                        </h2>
+                        <p class="text-lg text-muted-foreground mb-8">
+                            {businessTagline} | {businessResetLine}
+                        </p>
+                        <a href={mainBookingUrl} target="_blank" rel="noopener noreferrer" class={buttonVariants({ variant: "hero", size: "lg", className: "uppercase tracking-wider px-10" })}>Book Now</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="py-20 md:py-28 bg-charcoal-light">
+                <div class="container">
+                    <div class="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+                        <div>
+                            <span class="text-primary text-sm font-medium tracking-[0.3em] uppercase">Visit Us</span>
+                            <h2 class="font-display text-3xl md:text-4xl font-bold mt-4 mb-8 uppercase">
+                                Our <span class="text-gradient">Location</span>
+                            </h2>
+                            <div class="space-y-4 text-muted-foreground">
+                                <div class="flex items-center gap-4">
+                                    <MapPin className="w-6 h-6 text-primary flex-shrink-0" />
+                                    <span>{businessAddress}</span>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <Phone className="w-6 h-6 text-primary flex-shrink-0" />
+                                    <span>{businessPhone}</span>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <Clock className="w-6 h-6 text-primary flex-shrink-0" />
+                                    <div>
+                                        <p>Mon - Fri: 9AM - 7PM</p>
+                                        <p>Sat: 8AM - 6PM</p>
+                                        <p>Sun: Closed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a
+                                href={directionsUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class={buttonVariants({ variant: "hero", size: "lg", className: "mt-8 uppercase tracking-wider" })}
+                            >
+                                Get Directions
+                            </a>
+                        </div>
+                        <div class="aspect-video rounded-xl overflow-hidden bg-secondary">
+                            <div class="w-full h-full flex items-center justify-center text-muted-foreground">
+                                <MapPin className="w-16 h-16 text-primary/30" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="py-12 border-t border-border/50">
+                <div class="container">
+                    <div class="flex flex-col items-center gap-8">
+                        <Image src={getfadedLogo} alt={businessName} loading="lazy" width={164} height={64} class="h-16 w-auto" />
+
+                        <div class="flex items-center gap-6">
+                            <a href={instagramSocialUrl} target="_blank" rel="noopener noreferrer" class="p-3 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors">
+                                <Instagram className="w-5 h-5" />
+                            </a>
+                            <a href={facebookSocialUrl} target="_blank" rel="noopener noreferrer" class="p-3 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors">
+                                <Facebook className="w-5 h-5" />
+                            </a>
+                            <a href={yelpSocialUrl} target="_blank" rel="noopener noreferrer" aria-label="Yelp" class="p-3 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors text-sm font-semibold">
+                                Y
+                            </a>
+                        </div>
+
+                        <div class="text-center">
+                            <p class="text-sm text-muted-foreground">
+                                © {businessName}. All rights reserved.
+                            </p>
+                            <p class="text-xs text-muted-foreground/50 mt-2">
+                                {businessAddress}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
-      </section>
+        <script>
+        const initializeRevealAnimations = () => {
+            const revealElements = Array.from(document.querySelectorAll("[data-reveal]"));
 
-      <footer class="py-12 border-t border-border/50">
-        <div class="container">
-          <div class="flex flex-col items-center gap-8">
-            <Image src={getfadedLogo} alt={businessName} loading="lazy" width={164} height={64} class="h-16 w-auto" />
+            if (revealElements.length === 0) {
+                return;
+            }
 
-            <div class="flex items-center gap-6">
-              <a href={instagramSocialUrl} target="_blank" rel="noopener noreferrer" class="p-3 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href={facebookSocialUrl} target="_blank" rel="noopener noreferrer" class="p-3 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href={yelpSocialUrl} target="_blank" rel="noopener noreferrer" aria-label="Yelp" class="p-3 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors text-sm font-semibold">
-                Y
-              </a>
-            </div>
+            const revealElement = (element) => {
+                element.classList.add("reveal-visible");
+            };
 
-            <div class="text-center">
-              <p class="text-sm text-muted-foreground">
-                © {businessName}. All rights reserved.
-              </p>
-              <p class="text-xs text-muted-foreground/50 mt-2">
-                {businessAddress}
-              </p>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
-    <script>
-      const initializeRevealAnimations = () => {
-        const revealElements = Array.from(document.querySelectorAll("[data-reveal]"));
+            if (!("IntersectionObserver" in window)) {
+                revealElements.forEach(revealElement);
+                return;
+            }
 
-        if (revealElements.length === 0) {
-          return;
-        }
+            const revealObserver = new IntersectionObserver(
+                (entries, observer) => {
+                    entries.forEach((entry) => {
+                        if (!entry.isIntersecting) {
+                            return;
+                        }
 
-        const revealElement = (element) => {
-          element.classList.add("reveal-visible");
+                        revealElement(entry.target);
+                        observer.unobserve(entry.target);
+                    });
+                },
+                {
+                    threshold: 0.08,
+                    rootMargin: "0px 0px -5% 0px",
+                },
+            );
+
+            revealElements.forEach((element) => {
+                const rect = element.getBoundingClientRect();
+                const isAlreadyVisible = rect.top < window.innerHeight * 0.95 && rect.bottom > 0;
+
+                if (isAlreadyVisible) {
+                    revealElement(element);
+                    return;
+                }
+
+                revealObserver.observe(element);
+            });
         };
 
-        if (!("IntersectionObserver" in window)) {
-          revealElements.forEach(revealElement);
-          return;
-        }
+        const initializeMobileMenuAnimations = () => {
+            const mobileMenu = document.querySelector("[data-mobile-menu]");
+            const menuPanel = document.querySelector("[data-mobile-menu-panel]");
 
-        const revealObserver = new IntersectionObserver(
-          (entries, observer) => {
-            entries.forEach((entry) => {
-              if (!entry.isIntersecting) {
+            if (!mobileMenu || !menuPanel) {
                 return;
-              }
+            }
 
-              revealElement(entry.target);
-              observer.unobserve(entry.target);
+            let closeTimeout;
+            let autoScrollTimeout;
+            let isAutoScrolling = false;
+            const closeDurationMs = 180;
+            const autoScrollStopDelayMs = 160;
+
+            /**
+             * Keeps the auto-scroll window alive while scrolling continues.
+             */
+            const refreshAutoScrollTracking = () => {
+                if (!isAutoScrolling) {
+                    return;
+                }
+
+                if (autoScrollTimeout) {
+                    window.clearTimeout(autoScrollTimeout);
+                }
+
+                autoScrollTimeout = window.setTimeout(() => {
+                    isAutoScrolling = false;
+                }, autoScrollStopDelayMs);
+            };
+
+            /**
+             * Marks anchor-based scrolling so the menu can reopen mid-scroll.
+             */
+            const startAutoScrollTracking = () => {
+                isAutoScrolling = true;
+                refreshAutoScrollTracking();
+            };
+
+            const closeMenu = () => {
+                if (!mobileMenu.hasAttribute("open")) {
+                    return;
+                }
+
+                if (closeTimeout) {
+                    window.clearTimeout(closeTimeout);
+                }
+
+                menuPanel.classList.remove("animate-menu-open");
+                menuPanel.classList.add("animate-menu-close");
+
+                closeTimeout = window.setTimeout(() => {
+                    mobileMenu.removeAttribute("open");
+                    menuPanel.classList.remove("animate-menu-close");
+                    menuPanel.classList.add("animate-menu-open");
+                }, closeDurationMs);
+            };
+
+            mobileMenu.addEventListener("toggle", () => {
+                if (!mobileMenu.hasAttribute("open")) {
+                    return;
+                }
+
+                if (closeTimeout) {
+                    window.clearTimeout(closeTimeout);
+                }
+
+                menuPanel.classList.remove("animate-menu-close");
+                menuPanel.classList.add("animate-menu-open");
             });
-          },
-          {
-            threshold: 0.08,
-            rootMargin: "0px 0px -5% 0px",
-          },
-        );
 
-        revealElements.forEach((element) => {
-          const rect = element.getBoundingClientRect();
-          const isAlreadyVisible = rect.top < window.innerHeight * 0.95 && rect.bottom > 0;
+            const menuSummary = mobileMenu.querySelector("summary");
+            menuSummary?.addEventListener("click", (event) => {
+                if (!mobileMenu.hasAttribute("open")) {
+                    return;
+                }
 
-          if (isAlreadyVisible) {
-            revealElement(element);
-            return;
-          }
+                event.preventDefault();
+                closeMenu();
+            });
 
-          revealObserver.observe(element);
-        });
-      };
+            const menuItems = mobileMenu.querySelectorAll("[data-mobile-menu-item]");
+            menuItems.forEach((menuItem) => {
+                menuItem.addEventListener("click", () => {
+                    const href = menuItem.getAttribute("href") ?? "";
 
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", initializeRevealAnimations, { once: true });
-      } else {
-        initializeRevealAnimations();
-      }
-    </script>
-  </body>
+                    if (href.startsWith("#")) {
+                        startAutoScrollTracking();
+                    }
+
+                    closeMenu();
+                });
+            });
+            const handleOutsideClick = (event) => {
+                if (!mobileMenu.hasAttribute("open")) {
+                    return;
+                }
+
+                if (!(event.target instanceof Node)) {
+                    return;
+                }
+
+                if (mobileMenu.contains(event.target)) {
+                    return;
+                }
+
+                closeMenu();
+            };
+
+            document.addEventListener("click", handleOutsideClick);
+
+            window.addEventListener(
+                "scroll",
+                () => {
+                    if (isAutoScrolling) {
+                        refreshAutoScrollTracking();
+                        return;
+                    }
+                    closeMenu();
+                },
+                { passive: true },
+            );
+        };
+
+        if (document.readyState === "loading") {
+            document.addEventListener(
+                "DOMContentLoaded",
+                () => {
+                    initializeRevealAnimations();
+                    initializeMobileMenuAnimations();
+                },
+                { once: true },
+            );
+        } else {
+            initializeRevealAnimations();
+            initializeMobileMenuAnimations();
+        }
+        </script>
+    </body>
 </html>

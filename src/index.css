@@ -55,6 +55,32 @@
     --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
 
+  @keyframes menu-open {
+    from {
+      opacity: 0;
+      transform: translateY(-6px) scale(0.98);
+    }
+    55% {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes menu-close {
+    from {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-6px) scale(0.98);
+    }
+  }
+
+
   .dark {
     --background: 0 0% 4%;
     --foreground: 40 20% 95%;
@@ -100,6 +126,11 @@
     background: var(--gradient-gold);
   }
 
+  .bg-gold-fallback {
+    background-color: hsl(var(--primary));
+    background-image: var(--gradient-gold);
+  }
+
   .bg-gradient-dark {
     background: var(--gradient-dark);
   }
@@ -118,6 +149,56 @@
 
   .glow-gold {
     filter: drop-shadow(0 0 20px hsl(38 92% 50% / 0.4));
+  }
+  .hero-caption-glass {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.35rem 1.1rem;
+    border-radius: 999px;
+    background: linear-gradient(
+      135deg,
+      hsl(0 0% 100% / 0.1),
+      hsl(0 0% 100% / 0.02)
+    );
+    background-size: 160% 160%;
+    background-position: -140% -140%;
+    background-repeat: no-repeat;
+    border: 1px solid hsl(0 0% 100% / 0.12);
+    box-shadow: 0 16px 32px hsl(0 0% 0% / 0.3);
+    overflow: hidden;
+  }
+
+  .hero-caption-glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+      radial-gradient(
+        120% 140% at 10% 0%,
+        hsl(0 0% 100% / 0.18),
+        transparent 55%
+      );
+    opacity: 0.75;
+    pointer-events: none;
+  }
+
+  .hero-caption-glass::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: inherit;
+    border: 1px solid hsl(0 0% 100% / 0.06);
+    pointer-events: none;
+  }
+
+  @supports (backdrop-filter: blur(8px)) or (-webkit-backdrop-filter: blur(8px)) {
+    .hero-caption-glass {
+      backdrop-filter: blur(8px) saturate(120%);
+      -webkit-backdrop-filter: blur(8px) saturate(120%);
+    }
   }
 
   /* Animations */
@@ -183,6 +264,50 @@
     }
   }
 
+  @keyframes shimmer-roll {
+    0% {
+      background-position: -140% 0;
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    70.5% {
+      background-position: 140% 0;
+      opacity: 1;
+    }
+    71.5% {
+      background-position: 140% 0;
+      opacity: 0;
+    }
+    100% {
+      background-position: 140% 0;
+      opacity: 0;
+    }
+  }
+
+  @keyframes shimmer-roll-diagonal {
+    0% {
+      background-position: 140% 140%;
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    70.5% {
+      background-position: -140% -140%;
+      opacity: 1;
+    }
+    71.5% {
+      background-position: -140% -140%;
+      opacity: 0;
+    }
+    100% {
+      background-position: -140% -140%;
+      opacity: 0;
+    }
+  }
+
   .animate-fade-up {
     animation: fade-up 0.8s ease-out forwards;
   }
@@ -193,6 +318,17 @@
 
   .animate-scale-in {
     animation: scale-in 0.5s ease-out forwards;
+  }
+
+  .animate-menu-open {
+    animation: menu-open 0.2s ease-out forwards;
+    transform-origin: top right;
+  }
+
+  .animate-menu-close {
+    animation: menu-close 0.18s ease-in forwards;
+    transform-origin: top right;
+    pointer-events: none;
   }
 
   .reveal-soft-rise,
@@ -231,6 +367,105 @@
     background-size: 200% 100%;
     animation: shimmer 2s infinite;
   }
+
+  .text-shimmer-gold {
+    position: relative;
+    display: inline-block;
+    background-image:
+      linear-gradient(135deg, hsl(38 92% 50%), hsl(40 100% 70%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-shimmer-gold::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+      90deg,
+      hsl(45 100% 90% / 0) 0%,
+      hsl(45 100% 90% / 0) 46%,
+      hsl(45 100% 90% / 0.9) 50%,
+      hsl(45 100% 90% / 0) 54%,
+      hsl(45 100% 90% / 0) 100%
+    );
+    background-size: 160% 100%;
+    background-position: -140% 0;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    animation: shimmer-roll 4s linear infinite;
+    animation-delay: var(--shimmer-delay, 0s);
+    pointer-events: none;
+  }
+
+  .shimmer-delay-1 {
+    --shimmer-delay: -0.45s;
+  }
+
+  .shimmer-delay-2 {
+    --shimmer-delay: -0.9s;
+  }
+
+  .shimmer-delay-3 {
+    --shimmer-delay: -1.35s;
+  }
+
+  .shimmer-delay-4 {
+    --shimmer-delay: -1.8s;
+  }
+
+  .shimmer-delay-5 {
+    --shimmer-delay: -2.25s;
+  }
+
+  .shimmer-delay-6 {
+    --shimmer-delay: -2.7s;
+  }
+
+  .shimmer-delay-7 {
+    --shimmer-delay: -3.15s;
+  }
+
+  .shimmer-delay-8 {
+    --shimmer-delay: -3.6s;
+  }
+
+
+  .button-shimmer {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .button-shimmer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-image: linear-gradient(
+      135deg,
+      hsl(45 100% 90% / 0) 0%,
+      hsl(45 100% 90% / 0) 46%,
+      hsl(45 100% 90% / 0.9) 50%,
+      hsl(45 100% 90% / 0) 54%,
+      hsl(45 100% 90% / 0) 100%
+    );
+    background-size: 160% 160%;
+    background-position: 140% 140%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    mix-blend-mode: screen;
+    animation: shimmer-roll-diagonal 4s linear infinite;
+    animation-delay: var(--shimmer-delay, 0s);
+    pointer-events: none;
+  }
+
 
   .delay-100 {
     animation-delay: 100ms;
