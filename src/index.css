@@ -337,6 +337,16 @@
     will-change: opacity, transform;
   }
 
+  /* Hide images until loaded, then fade in */
+  .img-loading {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+  }
+
+  .img-loaded {
+    opacity: 1;
+  }
+
   .reveal-soft-rise {
     transform: translate3d(0, 18px, 0) scale(0.985);
     transition:

@@ -22,7 +22,7 @@ const businessName = "Get Faded Barbershop";
 const businessTagline = "Cuts • Culture • Community";
 const businessResetLine = `Not just a cut \n you get reset.`;
 const aboutCopy =
-    "Great Cuts. Total Comfort.\nNear downtown Santa Cruz; Okay.chill, relax, be yourself.\nWalk out fresh with an excellent cut.";
+    "Great Cuts. Total Comfort.\nNear downtown Santa Cruz; chill, relax, be yourself.\nWalk out fresh with an excellent cut.";
 const mainBookingUrl = "https://getsquire.com/discover/barbershop/get-faded-barbershop-santa-cruz";
 const businessAddress = "907 Cedar St, Santa Cruz, CA 95060";
 const businessPhone = "(831) 600-8958";
@@ -37,22 +37,28 @@ const instagramSocialUrl = "https://www.instagram.com/get__faded/";
 const services = [
     {
         name: "Haircuts",
-        price: "$45+",
-        description: "Standard cuts ($45+), Get Faded Special & house calls",
+        price: "$48+",
+        description: "Standard cuts ($48+), Get Faded Special ($158) & house calls ($300)",
         duration: "30 min – 3 hrs",
     },
-    // {
-    //     name: "Beard, Shaves & Eyebrows",
-    //     price: "$18 – $48",
-    //     description: "Eyebrow shaping, beard trims & straight razor shaves",
-    //     duration: "15 – 30 min",
-    // },
-    // {
-    //     name: "Locs",
-    //     price: "~$153",
-    //     description: "Loc retwist services for maintenance & styling",
-    //     duration: "3 – 4 hrs",
-    // },
+    {
+         name: "Hot Towel Razor Shave",
+         price: "$48+",
+         description: "Premium straight razor shave with hot towel treatment",
+	duration: "15 – 30 min",
+    },
+    {
+        name: "Modern Hairstyles",
+        price: "$58+",
+        description: "Trendy cuts & styles for the modern look",
+        duration: "30 min – 1 hr",
+    },
+    {
+        name: "Sissor Haircut",
+        price: "$68+",
+        description: "Classic precision cuts with expert technique",
+        duration: "30 min – 1 hr",
+    },
     // {
     //     name: "Add-Ons",
     //     price: "$10 – $13",
@@ -62,13 +68,13 @@ const services = [
 ];
 
 const barbers = [
-    { name: "Red Vasquez", primaryImage: barberRed.src, revealImage: barberRed.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/red-vasquez/services", cropClass: "object-[42%_26%]" },
-    { name: "Pinks", primaryImage: "/20260325_pink.jpg", revealImage: barberPinks.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/pinks-cash-preferred/services", cropClass: "object-[50%_22%]" },
-    { name: "Anthony Negrete", primaryImage: "/20260325_anthony.jpg", revealImage: barberAnthony.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/anthony-negrete/services", cropClass: "object-[50%_24%]" },
-    { name: "Andreas Olmedo", primaryImage: "/20260325_andres.jpg", revealImage: barberAndreas.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/andreas-olmedo/services", cropClass: "object-[42%_24%]" },
-    { name: "Oscar Rameno", primaryImage: "/20260325_oscar.jpg", revealImage: barberOscar.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/oscar-rameno/services", cropClass: "object-[50%_24%]" },
-    { name: "Ricky Cutz", primaryImage: "/20260325_rick.jpg", revealImage: barberRicky.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/ricky-cutz/services", cropClass: "object-[58%_30%]" },
-    { name: "Jose Moya", primaryImage: "/20260325_jose.jpg", revealImage: barberJose.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/jose-moya/services", cropClass: "object-[50%_24%]" },
+    { name: "Red Vasquez", primaryImage: null, revealImage: barberRed.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/red-vasquez/services", cropClass: "object-[42%_26%]" },
+    { name: "Pinks", primaryImage: null, revealImage: barberPinks.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/pinks-cash-preferred/services", cropClass: "object-[50%_22%]" },
+    { name: "Anthony Negrete", primaryImage: null, revealImage: barberAnthony.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/anthony-negrete/services", cropClass: "object-[50%_24%]" },
+    { name: "Andreas Olmedo", primaryImage: null, revealImage: barberAndreas.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/andreas-olmedo/services", cropClass: "object-[42%_24%]" },
+    { name: "Oscar Rameno", primaryImage: null, revealImage: barberOscar.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/oscar-rameno/services", cropClass: "object-[50%_24%]" },
+    { name: "Ricky Cutz", primaryImage: null, revealImage: barberRicky.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/ricky-cutz/services", cropClass: "object-[58%_30%]" },
+    { name: "Jose Moya", primaryImage: null, revealImage: barberJose.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/jose-moya/services", cropClass: "object-[50%_24%]" },
 ];
 
 const galleryImages = [
@@ -152,14 +158,13 @@ const reviews = [
             </nav>
 
             <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-                <div class="absolute inset-0">
+                <div class="absolute inset-0 bg-black">
                     <video
                         autoplay
                         muted
                         loop
                         playsinline
                         preload="auto"
-                        poster={heroImage.src}
                         class="absolute inset-0 w-full h-full object-cover"
                     >
                         <source src="/hero-video.webm" type="video/webm" />
@@ -237,16 +242,8 @@ const reviews = [
                             data-reveal
                             style={`animation-delay: ${index * 100}ms`}
                         >
-                            <div class="relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 mx-auto mb-4 overflow-hidden rounded-full">
+                            <div class="relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 mx-auto mb-4 overflow-hidden rounded-full bg-black">
                                 <div class="absolute inset-0 z-10 rounded-full border-2 border-primary/30 group-hover:border-primary group-hover:shadow-gold transition-all duration-300"></div>
-                                <img
-                                    src={barber.primaryImage}
-                                    alt={barber.name}
-                                    loading="lazy"
-                                    width="144"
-                                    height="144"
-                                    class={`absolute inset-0 w-full h-full object-cover ${barber.cropClass} scale-[1.1] group-hover:scale-[1.05] transform-gpu transition-all duration-500 rounded-full`}
-                                />
                                 <img
                                     src={barber.revealImage}
                                     alt={`${barber.name} alternate portrait`}
@@ -432,9 +429,9 @@ const reviews = [
                                 <div class="flex items-center gap-4">
                                     <Clock className="w-6 h-6 text-primary flex-shrink-0" />
                                     <div>
-                                        <p>Mon - Fri: 9AM - 7PM</p>
-                                        <p>Sat: 8AM - 6PM</p>
-                                        <p>Sun: Closed</p>
+                                        <p>Mon - Fri: 9AM - 6PM</p>
+                                        <p>Sat: 9AM - 4PM</p>
+                                        <p>Sun: 9AM - 2PM</p>
                                     </div>
                                 </div>
                             </div>
