@@ -14,7 +14,33 @@ import barberAndreas from "@/assets/barber-andreas.jpg";
 import barberOscar from "@/assets/barber-oscar.jpg";
 import barberRicky from "@/assets/barber-ricky.jpg";
 import barberJose from "@/assets/barber-jose.jpg";
+import primary20260325Anthony from "@/assets/20260325_anthony.jpg";
+import primary20260325Pinks from "@/assets/20260325_pink.jpg";
+import primary20260325Andreas from "@/assets/20260325_andres.jpg";
+import primary20260325Oscar from "@/assets/20260325_oscar.jpg";
+import primary20260325Ricky from "@/assets/20260325_rick.jpg";
+import primary20260325Jose from "@/assets/20260325_jose.jpg";
 import getfadedLogo from "@/assets/getfaded-logo.png";
+
+// Today's gallery assets (Apr 12) — iPhone portrait photos + .mov videos
+import img7600 from "@/assets/IMG_7600.png";
+import img7601 from "@/assets/IMG_7601.png";
+import img7602 from "@/assets/IMG_7602.png";
+import img7603 from "@/assets/IMG_7603.png";
+import img7604 from "@/assets/IMG_7604.png";
+import img7606 from "@/assets/IMG_7606.png";
+import img7607 from "@/assets/IMG_7607.png";
+import img7609 from "@/assets/IMG_7609.png";
+import img7610 from "@/assets/IMG_7610.png";
+import img7611 from "@/assets/IMG_7611.png";
+import img7612 from "@/assets/IMG_7612.png";
+import img7138 from "@/assets/IMG_7138.png";
+import img7142 from "@/assets/IMG_7142.png";
+import img7151 from "@/assets/IMG_7151.png";
+import dsc04250 from "@/assets/DSC04250.png";
+import workVideo1 from "@/assets/1a8f648c775343d0a07fc5237079222c.mov?url";
+import workVideo2 from "@/assets/61eccd3253744c19ab1c4f3bcdd30b99.mov?url";
+import workVideo3 from "@/assets/234ab5a506e74eb6a025b7c53614ccc4.mov?url";
 
 export const prerender = true;
 
@@ -68,13 +94,13 @@ const services = [
 ];
 
 const barbers = [
-    { name: "Red Vasquez", primaryImage: null, revealImage: barberRed.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/red-vasquez/services", cropClass: "object-[42%_26%]" },
-    { name: "Pinks", primaryImage: null, revealImage: barberPinks.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/pinks-cash-preferred/services", cropClass: "object-[50%_22%]" },
-    { name: "Anthony Negrete", primaryImage: null, revealImage: barberAnthony.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/anthony-negrete/services", cropClass: "object-[50%_24%]" },
-    { name: "Andreas Olmedo", primaryImage: null, revealImage: barberAndreas.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/andreas-olmedo/services", cropClass: "object-[42%_24%]" },
-    { name: "Oscar Rameno", primaryImage: null, revealImage: barberOscar.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/oscar-rameno/services", cropClass: "object-[50%_24%]" },
-    { name: "Ricky Cutz", primaryImage: null, revealImage: barberRicky.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/ricky-cutz/services", cropClass: "object-[58%_30%]" },
-    { name: "Jose Moya", primaryImage: null, revealImage: barberJose.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/jose-moya/services", cropClass: "object-[50%_24%]" },
+    { name: "Red Vasquez", primaryImage: barberRed.src, revealImage: barberRed.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/red-vasquez/services", cropClass: "object-[42%_26%]" },
+    { name: "Pinks", primaryImage: primary20260325Pinks.src, revealImage: barberPinks.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/pinks-cash-preferred/services", cropClass: "object-[50%_22%]" },
+    { name: "Anthony Negrete", primaryImage: primary20260325Anthony.src, revealImage: barberAnthony.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/anthony-negrete/services", cropClass: "object-[50%_24%]" },
+    { name: "Andreas Olmedo", primaryImage: primary20260325Andreas.src, revealImage: barberAndreas.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/andreas-olmedo/services", cropClass: "object-[42%_24%]" },
+    { name: "Oscar Rameno", primaryImage: primary20260325Oscar.src, revealImage: barberOscar.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/oscar-rameno/services", cropClass: "object-[50%_24%]" },
+    { name: "Ricky Cutz", primaryImage: primary20260325Ricky.src, revealImage: barberRicky.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/ricky-cutz/services", cropClass: "object-[58%_30%]" },
+    { name: "Jose Moya", primaryImage: primary20260325Jose.src, revealImage: barberJose.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/jose-moya/services", cropClass: "object-[50%_24%]" },
 ];
 
 const galleryImages = [
@@ -85,6 +111,12 @@ const galleryImages = [
     { src: styleFade, alt: "Signature Look", label: "Signature" },
     { src: styleBeard, alt: "Clean Shave", label: "Clean" },
 ];
+
+const workPhotos = [
+    img7600, img7601, img7602, img7603, img7604, img7606, img7607,
+    img7609, img7610, img7611, img7612, img7138, img7142, img7151, dsc04250,
+];
+const workVideos = [workVideo1 as string, workVideo2 as string, workVideo3 as string];
 
 const reviews = [
 //     { name: "Michael T.", text: "Best barbershop in town! Been coming here for 2 years.", rating: 5 },
@@ -244,6 +276,16 @@ const reviews = [
                         >
                             <div class="relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 mx-auto mb-4 overflow-hidden rounded-full bg-black">
                                 <div class="absolute inset-0 z-10 rounded-full border-2 border-primary/30 group-hover:border-primary group-hover:shadow-gold transition-all duration-300"></div>
+                                {barber.primaryImage && (
+                                    <img
+                                        src={barber.primaryImage}
+                                        alt={`${barber.name} portrait`}
+                                        loading="lazy"
+                                        width="144"
+                                        height="144"
+                                        class={`absolute inset-0 w-full h-full object-cover ${barber.cropClass} scale-[1.25] opacity-100 group-hover:opacity-0 transform-gpu transition-all duration-500 rounded-full`}
+                                    />
+                                )}
                                 <img
                                     src={barber.revealImage}
                                     alt={`${barber.name} alternate portrait`}
@@ -405,6 +447,112 @@ const reviews = [
                             {businessTagline} | {businessResetLine}
                         </p>
                         <a href={mainBookingUrl} target="_blank" rel="noopener noreferrer" class={buttonVariants({ variant: "hero", size: "lg", className: "uppercase tracking-wider px-10" })}>Book Now</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── Fresh Cuts Gallery ─────────────────────────────── -->
+            <section id="work" class="py-20 md:py-28 bg-background">
+                <div class="container mb-10">
+                    <div class="reveal-soft-rise flex items-end justify-between flex-wrap gap-4" data-reveal>
+                        <div>
+                            <span class="text-primary text-sm font-medium tracking-[0.3em] uppercase">Our Work</span>
+                            <h2 class="font-display text-3xl md:text-5xl font-bold mt-4 uppercase tracking-wide">
+                                Fresh <span class="text-gradient">Cuts</span>
+                            </h2>
+                        </div>
+                        <a
+                            href="https://www.instagram.com/get__faded"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-medium uppercase tracking-wider pb-1"
+                        >
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <circle cx="12" cy="12" r="4.5"/>
+                                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+                            </svg>
+                            @get__faded
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Photo reel — auto-scrolls, pauses on hover, taps open Instagram -->
+                <div id="gallery-reel-wrapper" class="relative overflow-hidden">
+                    <!-- Gradient edges — hint that content continues -->
+                    <div class="absolute left-0 inset-y-0 w-12 md:w-20 z-10 pointer-events-none"
+                         style="background:linear-gradient(to right,hsl(var(--background)),transparent)"></div>
+                    <div class="absolute right-0 inset-y-0 w-12 md:w-20 z-10 pointer-events-none"
+                         style="background:linear-gradient(to left,hsl(var(--background)),transparent)"></div>
+
+                    <!-- One-shot swipe hint badge -->
+                    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 pointer-events-none gallery-swipe-hint">
+                        <div class="flex items-center gap-1.5 bg-black/70 backdrop-blur-sm border border-white/15 rounded-full px-3 py-1.5">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="hsl(var(--primary))" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="4 2 8 6 4 10"/>
+                            </svg>
+                            <span class="text-[10px] text-white/70 uppercase tracking-widest font-medium">Swipe</span>
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="hsl(var(--primary))" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="4 2 8 6 4 10"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- The scrolling strip — photos duplicated for seamless loop -->
+                    <div id="gallery-reel" class="gallery-reel flex gap-3 pb-5 pt-3 px-4">
+                        {[...workPhotos, ...workPhotos].map((photo, i) => (
+                            <a
+                                href="https://www.instagram.com/get__faded"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="flex-shrink-0 group relative overflow-hidden rounded-2xl border border-white/10 hover:border-primary/60 transition-all duration-300 hover:shadow-[0_0_28px_hsl(var(--primary)/0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                                style="width:min(calc(45vw - 0.75rem),175px);aspect-ratio:9/16"
+                                aria-label="View on Instagram"
+                            >
+                                <img
+                                    src={photo.src}
+                                    alt=""
+                                    loading="lazy"
+                                    width={photo.width}
+                                    height={photo.height}
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none"
+                                />
+                                <!-- Instagram hover overlay -->
+                                <div class="absolute inset-0 bg-black/55 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2 pointer-events-none">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                        <circle cx="12" cy="12" r="4.5"/>
+                                        <circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/>
+                                    </svg>
+                                    <span class="text-[9px] text-white/80 uppercase tracking-[0.2em] font-medium">@get__faded</span>
+                                </div>
+                            </a>
+                        ))}
+                    </div>
+                </div>
+
+                <!-- Videos — portrait cards -->
+                <div class="container mt-5">
+                    <div class="flex sm:grid sm:grid-cols-3 gap-3 overflow-x-auto sm:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden pb-2 sm:pb-0">
+                        {workVideos.map((videoSrc, i) => (
+                            <div
+                                class="w-[70vw] max-w-[260px] flex-shrink-0 sm:w-auto sm:max-w-none relative overflow-hidden rounded-2xl border border-white/10 hover:border-primary/40 transition-all duration-300 hover:shadow-[0_0_22px_hsl(var(--primary)/0.25)]"
+                                style="aspect-ratio:9/16"
+                            >
+                                <video
+                                    autoplay
+                                    muted
+                                    loop
+                                    playsinline
+                                    preload="metadata"
+                                    class="w-full h-full object-cover"
+                                >
+                                    <source src={videoSrc} type="video/mp4" />
+                                    <source src={videoSrc} type="video/quicktime" />
+                                </video>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -653,18 +801,35 @@ const reviews = [
             );
         };
 
+        const initGallery = () => {
+            // Gallery reel is CSS-animated; no JS needed for auto-scroll.
+            // On touch devices, briefly pause after a tap so the link registers.
+            const reel = document.getElementById("gallery-reel");
+            if (!reel) return;
+
+            reel.addEventListener("touchstart", () => {
+                reel.style.animationPlayState = "paused";
+            }, { passive: true });
+
+            reel.addEventListener("touchend", () => {
+                setTimeout(() => { reel.style.animationPlayState = ""; }, 1200);
+            }, { passive: true });
+        };
+
         if (document.readyState === "loading") {
             document.addEventListener(
                 "DOMContentLoaded",
                 () => {
                     initializeRevealAnimations();
                     initializeMobileMenuAnimations();
+                    initGallery();
                 },
                 { once: true },
             );
         } else {
             initializeRevealAnimations();
             initializeMobileMenuAnimations();
+            initGallery();
         }
         </script>
     </body>

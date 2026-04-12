@@ -497,3 +497,33 @@
     animation-delay: 500ms;
   }
 }
+
+/* ── Gallery auto-scroll ──────────────────────────────── */
+@keyframes gallery-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.gallery-reel {
+  animation: gallery-scroll 60s linear infinite;
+  width: max-content;
+  will-change: transform;
+}
+
+#gallery-reel-wrapper:hover .gallery-reel,
+#gallery-reel-wrapper:focus-within .gallery-reel {
+  animation-play-state: paused;
+  cursor: grab;
+}
+
+/* One-shot swipe hint that appears briefly on load then vanishes */
+@keyframes gallery-hint-appear {
+  0%        { opacity: 0; transform: translateX(-6px); }
+  15%, 70%  { opacity: 1; transform: translateX(0); }
+  100%      { opacity: 0; transform: translateX(6px); }
+}
+
+.gallery-swipe-hint {
+  animation: gallery-hint-appear 2.8s cubic-bezier(0.4,0,0.2,1) 1.2s 1 forwards;
+  opacity: 0;
+}
