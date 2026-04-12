@@ -98,12 +98,12 @@ const services = [
 
 const barbers = [
     { name: "Red Vasquez", primaryImage: barberRed.src, revealImage: barberRed.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/red-vasquez/services", cropClass: "object-[42%_26%]" },
-    { name: "Pinks", primaryImage: barberPinks.src, revealImage: barberPinks.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/pinks-cash-preferred/services", cropClass: "object-[50%_22%]" },
-    { name: "Anthony Negrete", primaryImage: barberAnthony.src, revealImage: barberAnthony.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/anthony-negrete/services", cropClass: "object-[50%_24%]" },
-    { name: "Andreas Olmedo", primaryImage: barberAndreas.src, revealImage: barberAndreas.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/andreas-olmedo/services", cropClass: "object-[42%_24%]" },
-    { name: "Oscar Rameno", primaryImage: barberOscar.src, revealImage: barberOscar.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/oscar-rameno/services", cropClass: "object-[50%_24%]" },
+    { name: "Pinks", primaryImage: primary20260325Pinks.src, revealImage: barberPinks.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/pinks-cash-preferred/services", cropClass: "object-[50%_22%]" },
+    { name: "Anthony Negrete", primaryImage: primary20260325Anthony.src, revealImage: barberAnthony.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/anthony-negrete/services", cropClass: "object-[50%_24%]" },
+    { name: "Andreas Olmedo", primaryImage: primary20260325Andreas.src, revealImage: barberAndreas.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/andreas-olmedo/services", cropClass: "object-[42%_24%]" },
+    { name: "Oscar Rameno", primaryImage: primary20260325Oscar.src, revealImage: barberOscar.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/oscar-rameno/services", cropClass: "object-[50%_24%]" },
     { name: "Ricky Cutz", primaryImage: primary20260325Ricky.src, revealImage: barberRicky.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/ricky-cutz/services", cropClass: "object-[58%_30%]" },
-    { name: "Jose Moya", primaryImage: barberJose.src, revealImage: barberJose.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/jose-moya/services", cropClass: "object-[50%_24%]" },
+    { name: "Jose Moya", primaryImage: primary20260325Jose.src, revealImage: barberJose.src, bookingUrl: "https://getsquire.com/booking/book/get-faded-barbershop-santa-cruz/barber/jose-moya/services", cropClass: "object-[50%_24%]" },
 ];
 
 const galleryImages = [
@@ -440,7 +440,7 @@ const reviews = [
                         loading="lazy"
                         class="w-full h-full object-cover object-[center_top]"
                     />
-                    <div class="absolute inset-0 bg-black/75"></div>
+                    <div class="absolute inset-0 bg-black/60"></div>
                 </div>
                 <div class="container relative">
                     <div class="max-w-2xl mx-auto text-center">
@@ -482,7 +482,7 @@ const reviews = [
                 </div>
 
                 <!-- Photo reel — auto-scrolls, pauses on hover, taps open Instagram -->
-                <div id="gallery-reel-wrapper" class="relative" style="overflow:clip">
+                <div id="gallery-reel-wrapper" class="relative overflow-hidden">
                     <!-- Gradient edges — hint that content continues -->
                     <div class="absolute left-0 inset-y-0 w-12 md:w-20 z-10 pointer-events-none"
                          style="background:linear-gradient(to right,hsl(var(--background)),transparent)"></div>
@@ -509,8 +509,6 @@ const reviews = [
                                 href="https://www.instagram.com/get__faded"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                tabindex={i >= workPhotos.length ? -1 : 0}
-                                aria-hidden={i >= workPhotos.length ? "true" : undefined}
                                 class="flex-shrink-0 group relative overflow-hidden rounded-2xl border border-white/10 hover:border-primary/60 transition-all duration-300 hover:shadow-[0_0_28px_hsl(var(--primary)/0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                                 style="width:min(calc(45vw - 0.75rem),175px);aspect-ratio:9/16"
                                 aria-label="View on Instagram"
@@ -558,15 +556,7 @@ const reviews = [
                                     <source src={videoSrc} type="video/mp4" />
                                 </video>
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
-                                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2 pointer-events-none">
-                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                                        <circle cx="12" cy="12" r="4.5"/>
-                                        <circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/>
-                                    </svg>
-                                    <span class="text-[9px] text-white/80 uppercase tracking-[0.2em] font-medium">@get__faded</span>
-                                </div>
-                            </a>
+                            </div>
                         ))}
                     </div>
                 </div>
