@@ -21,7 +21,7 @@ import primary20260325Oscar from "@/assets/20260325_oscar.jpg";
 import primary20260325Ricky from "@/assets/20260325_rick.jpg";
 import primary20260325Jose from "@/assets/20260325_jose.jpg";
 import getfadedLogo from "@/assets/getfaded-logo.png";
-import fuckIceImage from "@/assets/getfaded-santa-cruz-fuck-ice.jpg";
+import ctaShopBg from "@/assets/getfaded-santa-cruz-fuck-ice.jpg";
 
 // Today's gallery assets (Apr 12) — iPhone portrait photos + .mov videos
 import img7600 from "@/assets/IMG_7600.png";
@@ -39,9 +39,11 @@ import img7138 from "@/assets/IMG_7138.png";
 import img7142 from "@/assets/IMG_7142.png";
 import img7151 from "@/assets/IMG_7151.png";
 import dsc04250 from "@/assets/DSC04250.png";
-import workVideo1 from "@/assets/1a8f648c775343d0a07fc5237079222c.mov?url";
-import workVideo2 from "@/assets/61eccd3253744c19ab1c4f3bcdd30b99.mov?url";
-import workVideo3 from "@/assets/234ab5a506e74eb6a025b7c53614ccc4.mov?url";
+import workVideo1 from "@/assets/1a8f648c775343d0a07fc5237079222c.mp4?url";
+import workVideo2 from "@/assets/61eccd3253744c19ab1c4f3bcdd30b99.mp4?url";
+import workVideo3 from "@/assets/234ab5a506e74eb6a025b7c53614ccc4.mp4?url";
+import heroVideoMp4 from "@/assets/hero-video.mp4?url";
+import heroVideoWebm from "@/assets/hero-video.webm?url";
 
 export const prerender = true;
 
@@ -129,9 +131,8 @@ const reviews = [
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/x-icon" href="/favicon-v3.ico" />
-        <link rel="shortcut icon" href="/favicon-v3.ico" />
-        <link rel="apple-touch-icon" href="/favicon-v3.ico" />
+        <link rel="icon" type="image/png" href={getfadedLogo.src} />
+        <link rel="apple-touch-icon" href={getfadedLogo.src} />
         <title>Get Faded Barbershop</title>
     </head>
     <body>
@@ -198,10 +199,12 @@ const reviews = [
                         loop
                         playsinline
                         preload="auto"
+                        disablepictureinpicture
                         class="absolute inset-0 w-full h-full object-cover"
+                        data-autoplay
                     >
-                        <source src="/hero-video.webm" type="video/webm" />
-                        <source src="/hero-video.mp4" type="video/mp4" />
+                        <source src={heroVideoWebm as string} type="video/webm" />
+                        <source src={heroVideoMp4 as string} type="video/mp4" />
                     </video>
                     <div class="absolute inset-0 bg-black/30"></div>
                     <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/60"></div>
@@ -432,13 +435,12 @@ const reviews = [
             <section class="py-20 md:py-28 relative overflow-hidden">
                 <div class="absolute inset-0">
                     <Image
-                        src={fuckIceImage}
-                        alt="Get Faded Santa Cruz"
+                        src={ctaShopBg}
+                        alt="Get Faded Barbershop Santa Cruz"
                         loading="lazy"
-                        class="w-full h-full object-cover object-top"
+                        class="w-full h-full object-cover object-[center_top]"
                     />
-                    <div class="absolute inset-0 bg-black/60"></div>
-                    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/60"></div>
+                    <div class="absolute inset-0 bg-black/75"></div>
                 </div>
                 <div class="container relative">
                     <div class="max-w-2xl mx-auto text-center">
@@ -539,24 +541,21 @@ const reviews = [
                 <div class="container mt-5">
                     <div class="flex sm:grid sm:grid-cols-3 gap-3 overflow-x-auto sm:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden pb-2 sm:pb-0">
                         {workVideos.map((videoSrc, i) => (
-                            <a
-                                href={instagramSocialUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="View on Instagram"
-                                class="w-[70vw] max-w-[260px] flex-shrink-0 sm:w-auto sm:max-w-none relative overflow-hidden rounded-2xl border border-white/10 hover:border-primary/40 transition-all duration-300 hover:shadow-[0_0_22px_hsl(var(--primary)/0.25)] group"
-                                style="aspect-ratio:9/16"
+                            <div
+                                class="w-[70vw] max-w-[260px] flex-shrink-0 sm:w-auto sm:max-w-none relative overflow-hidden rounded-2xl border border-white/10 hover:border-primary/40 transition-all duration-300 hover:shadow-[0_0_22px_hsl(var(--primary)/0.25)]"
+                                style="aspect-ratio:9/16; min-width:0"
                             >
                                 <video
                                     autoplay
                                     muted
                                     loop
                                     playsinline
-                                    preload="metadata"
-                                    class="w-full h-full object-cover pointer-events-none"
+                                    preload="auto"
+                                    disablepictureinpicture
+                                    class="w-full h-full object-cover"
+                                    data-autoplay
                                 >
                                     <source src={videoSrc} type="video/mp4" />
-                                    <source src={videoSrc} type="video/quicktime" />
                                 </video>
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
                                 <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2 pointer-events-none">
@@ -821,15 +820,50 @@ const reviews = [
             // Gallery reel is CSS-animated; no JS needed for auto-scroll.
             // On touch devices, briefly pause after a tap so the link registers.
             const reel = document.getElementById("gallery-reel");
-            if (!reel) return;
+            if (reel) {
+                reel.addEventListener("touchstart", () => {
+                    reel.style.animationPlayState = "paused";
+                }, { passive: true });
 
-            reel.addEventListener("touchstart", () => {
-                reel.style.animationPlayState = "paused";
-            }, { passive: true });
+                reel.addEventListener("touchend", () => {
+                    setTimeout(() => { reel.style.animationPlayState = ""; }, 1200);
+                }, { passive: true });
+            }
+        };
 
-            reel.addEventListener("touchend", () => {
-                setTimeout(() => { reel.style.animationPlayState = ""; }, 1200);
-            }, { passive: true });
+        // Force-play all muted autoplay videos — required on many mobile browsers
+        // that silently ignore the `autoplay` attribute until .play() is called.
+        const initVideoAutoplay = () => {
+            const videos = Array.from(
+                document.querySelectorAll<HTMLVideoElement>("video[data-autoplay]")
+            );
+
+            const tryPlay = (video: HTMLVideoElement) => {
+                if (video.paused) {
+                    video.play().catch(() => {
+                        // Retry once on first user interaction (covers strict autoplay policies)
+                        const retry = () => { video.play().catch(() => {}); };
+                        document.addEventListener("touchstart", retry, { once: true, passive: true });
+                        document.addEventListener("click", retry, { once: true });
+                    });
+                }
+            };
+
+            // Attempt immediately for already-visible videos
+            videos.forEach(tryPlay);
+
+            // Also watch via IntersectionObserver so off-screen videos play when scrolled to
+            if ("IntersectionObserver" in window) {
+                const obs = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) tryPlay(entry.target as HTMLVideoElement);
+                        });
+                    },
+                    { threshold: 0.25 }
+                );
+                videos.forEach((v) => obs.observe(v));
+            }
         };
 
         if (document.readyState === "loading") {
@@ -839,6 +873,7 @@ const reviews = [
                     initializeRevealAnimations();
                     initializeMobileMenuAnimations();
                     initGallery();
+                    initVideoAutoplay();
                 },
                 { once: true },
             );
@@ -846,6 +881,7 @@ const reviews = [
             initializeRevealAnimations();
             initializeMobileMenuAnimations();
             initGallery();
+            initVideoAutoplay();
         }
         </script>
     </body>
