@@ -510,8 +510,7 @@
   will-change: transform;
 }
 
-#gallery-reel-wrapper:hover .gallery-reel,
-#gallery-reel-wrapper:focus-within .gallery-reel {
+#gallery-reel-wrapper:hover .gallery-reel {
   animation-play-state: paused;
   cursor: grab;
 }
